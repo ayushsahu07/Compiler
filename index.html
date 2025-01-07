@@ -1,322 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js"></script>
+    <link rel="stylesheet" href="neon.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    body {
-      background: #181818;
-      color: #ffffff;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .neumorphic {
-      border-radius: 15px;
-      background: #202020;
-      box-shadow:
-        8px 8px 15px #101010,
-        -8px -8px 15px #303030;
-    }
-
-    .neumorphic-inset {
-      border-radius: 15px;
-      background: #202020;
-      box-shadow:
-        inset 5px 5px 10px #101010,
-        inset -5px -5px 10px #303030;
-    }
-
-    .compiler-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
-      background-color: #202020;
-      border-radius: 15px;
-    }
-
-    .header h1 {
-      color: #00bfff;
-      font-size: 24px;
-      font-weight: 600;
-    }
-
-    .main-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      height: calc(100vh - 140px);
-    }
-
-    /* New panel classes with neon and rotating effect */
-    .panel-input,
-    .panel-output {
-      position: relative;
-      border-radius: 15px;
-      background: #202020;
-      box-shadow:
-        8px 8px 15px #101010,
-        -8px -8px 15px #303030;
-      overflow: hidden;
-      animation: rotateEffect 10s infinite linear;
-    }
-
-    .panel-input {
-      border: 1px solid #00bfff;
-      animation: neonBorderInput 10s ease-in-out infinite alternate;
-    }
-
-    .panel-output {
-      border: 1px solid #ff007f;
-      animation: neonBorderOutput 10s ease-in-out infinite alternate;
-    }
-
-    @keyframes neonBorderInput {
-      0% {
-        box-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 15px #00bfff;
-      }
-
-      50% {
-        box-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff;
-      }
-
-      100% {
-        box-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 15px #00bfff;
-      }
-    }
-
-    @keyframes neonBorderOutput {
-      0% {
-        box-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 15px #ff007f;
-      }
-
-      50% {
-        box-shadow: 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f;
-      }
-
-      100% {
-        box-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 15px #ff007f;
-      }
-    }
-
-    @keyframes rotateEffect {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      border-bottom: 2px solid #303030;
-    }
-
-    .panel-title {
-      color: #00bfff;
-      font-size: 18px;
-      font-weight: 500;
-    }
-
-    .panel-actions {
-      display: flex;
-      gap: 15px;
-    }
-
-    .action-button {
-      width: 40px;
-      height: 40px;
-      border: none;
-      border-radius: 10px;
-      background: #202020;
-      box-shadow:
-        5px 5px 10px #101010,
-        -5px -5px 10px #303030;
-      color: #aaaaaa;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .action-button:active {
-      box-shadow:
-        inset 5px 5px 10px #101010,
-        inset -5px -5px 10px #303030;
-    }
-
-    .run-button {
-      padding: 10px 25px;
-      border: none;
-      border-radius: 10px;
-      background: #202020;
-      box-shadow:
-        5px 5px 10px #101010,
-        -5px -5px 10px #303030;
-      color: #00bfff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .run-button:active {
-      box-shadow:
-        inset 5px 5px 10px #101010,
-        inset -5px -5px 10px #303030;
-    }
-
-    .editor {
-      height: calc(100% - 80px);
-      padding: 20px;
-      position: relative;
-    }
-
-    .code-area {
-      width: 100%;
-      height: 100%;
-      padding: 20px 20px 20px 50px;
-      border: none;
-      border-radius: 15px;
-      background: #202020;
-      color: #eeeeee;
-      font-family: 'Courier New', monospace;
-      font-size: 14px;
-      line-height: 1.6;
-      resize: none;
-      box-shadow:
-        inset 5px 5px 10px #101010,
-        inset -5px -5px 10px #303030;
-    }
-
-    .output {
-      height: calc(100% - 80px);
-      margin: 20px;
-      padding: 20px;
-      border-radius: 15px;
-      background: #202020;
-      box-shadow:
-        inset 5px 5px 10px #101010,
-        inset -5px -5px 10px #303030;
-      font-family: 'Courier New', monospace;
-      color: #ffffff;
-    }
-
-    .language-icons {
-      position: fixed;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .language-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      background: #202020;
-      box-shadow:
-        5px 5px 10px #101010,
-        -5px -5px 10px #303030;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #00bfff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .language-icon:active {
-      box-shadow:
-        inset 5px 5px 10px #101010,
-        inset -5px -5px 10px #303030;
-    }
-
-    .line-numbers {
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      padding: 20px 10px;
-      color: #aaaaaa;
-      user-select: none;
-      font-family: 'Courier New', monospace;
-      z-index: 1;
-    }
-
-    .outer-header {
-      background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
-      padding: 4px;
-      border-radius: 15px;
-      margin-bottom: 30px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="compiler-container">
-    <div class="outer-header">
-      <div class="header">
-        <h1>Compiler</h1>
-        <div class="theme-toggle"></div>
-      </div>
+    <div class="left-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+    </div>
+    <div class="right-orbs">
+        <div class="orb orb3"></div>
+        <div class="orb orb4"></div>
+    </div>
+    <!-- --------------------main------------------ -->
+    <div class="main">
+        <div class="main-top-axis">
+            <div class="logo">
+                Compiler
+            </div>
+            <div class="top-btn">
+
+                <div class="switch">
+                    <label class="ui-switch">
+                        <input type="checkbox">
+                        <div class="slider">
+                            <div class="circle"></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="user-p">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <!-- <div class="cpy">
+                    <i class="fa-solid fa-copy"></i>
+                </div>
+                <div class="save">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </div>
+                <div class="dlt">
+                    <button class="bin-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 39 7" class="bin-top">
+                            <line stroke-width="4" stroke="white" y2="5" x2="39" y1="5"></line>
+                            <line stroke-width="3" stroke="white" y2="1.5" x2="26.0357" y1="1.5" x1="12"></line>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 33 39" class="bin-bottom">
+                            <mask fill="white" id="path-1-inside-1_8_19">
+                                <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
+                            </mask>
+                            <path mask="url(#path-1-inside-1_8_19)" fill="white"
+                                d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z">
+                            </path>
+                            <path stroke-width="4" stroke="white" d="M12 6L12 29"></path>
+                            <path stroke-width="4" stroke="white" d="M21 6V29"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 89 80" class="garbage">
+                            <path fill="white"
+                                d="M20.5 10.5L37.5 15.5L42.5 11.5L51.5 12.5L68.75 0L72 11.5L79.5 12.5H88.5L87 22L68.75 31.5L75.5066 25L86 26L87 35.5L77.5 48L70.5 49.5L80 50L77.5 71.5L63.5 58.5L53.5 68.5L65.5 70.5L45.5 73L35.5 79.5L28 67L16 63L12 51.5L0 48L16 25L22.5 17L20.5 10.5Z">
+                            </path>
+                        </svg>
+                    </button>
+
+                </div>
+                <div class="run-btn">
+                    <button class="button">
+                        <span>Run</span>
+                    </button>
+                </div> -->
+
+            </div>
+
+        </div>
+        <div class="main-content">
+            <div class="first">
+                <i class="fa-brands fa-python"></i>
+                <i class="fa-brands fa-java"></i>
+                <!-- <img src="Cplus.png" alt=""> -->
+                <i class="devicon-cplusplus-plain icon cpp"></i>
+                <i class="fa-solid fa-c"></i>
+            </div>
+            <div class="scnd">
+                <div class="input-head">
+                    <h3>Input</h3>
+                    <div class="file">
+                        <i class="fa-solid fa-file-import"></i>
+                    </div>
+                    <div class="cpy">
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                    <div class="save">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                    </div>
+                    <div class="run-btn">
+                        <button class="button">
+                            <span>Run</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="input">
+                    <div class="card">
+                        <div id="editor"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="thrd">
+                <div class="output-head">
+                  
+                    <h3>Output</h3>
+                    <div class="dlt">
+                        <button class="bin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 39 7" class="bin-top">
+                                <line stroke-width="4" stroke="white" y2="5" x2="39" y1="5"></line>
+                                <line stroke-width="3" stroke="white" y2="1.5" x2="26.0357" y1="1.5" x1="12"></line>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 33 39" class="bin-bottom">
+                                <mask fill="white" id="path-1-inside-1_8_19">
+                                    <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z">
+                                    </path>
+                                </mask>
+                                <path mask="url(#path-1-inside-1_8_19)" fill="white"
+                                    d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z">
+                                </path>
+                                <path stroke-width="4" stroke="white" d="M12 6L12 29"></path>
+                                <path stroke-width="4" stroke="white" d="M21 6V29"></path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 89 80" class="garbage">
+                                <path fill="white"
+                                    d="M20.5 10.5L37.5 15.5L42.5 11.5L51.5 12.5L68.75 0L72 11.5L79.5 12.5H88.5L87 22L68.75 31.5L75.5066 25L86 26L87 35.5L77.5 48L70.5 49.5L80 50L77.5 71.5L63.5 58.5L53.5 68.5L65.5 70.5L45.5 73L35.5 79.5L28 67L16 63L12 51.5L0 48L16 25L22.5 17L20.5 10.5Z">
+                                </path>
+                            </svg>
+                        </button>
+
+                    </div>
+                </div>
+                <div class="output"></div>
+            </div>
+        </div>
+        <div class="main-bottom-axis">
+
+        </div>
     </div>
 
-    <div class="main-content">
-      <div class="panel-input">
-        <div class="panel-header">
-          <span class="panel-title">Input</span>
-          <div class="panel-actions">
-            <button class="action-button">📋</button>
-            <button class="action-button">📄</button>
-            <button class="action-button">🔄</button>
-            <button class="run-button">Run</button>
-          </div>
-        </div>
-        <div class="editor">
-          <div class="line-numbers">
-            1<br>2<br>3<br>4<br>5
-          </div>
-          <textarea class="code-area" placeholder="// Type some code ->">console.log("Hello World!");</textarea>
-        </div>
-      </div>
-
-      <div class="panel-output">
-        <div class="panel-header">
-          <span class="panel-title">Output</span>
-          <div class="panel-actions">
-            <button class="action-button">🗑️</button>
-          </div>
-        </div>
-        <div class="output"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="language-icons">
-    <div class="language-icon">Py</div>
-    <div class="language-icon">JS</div>
-    <div class="language-icon">C</div>
-  </div>
+    <script src="neon.js"></script>
 </body>
 
 </html>
