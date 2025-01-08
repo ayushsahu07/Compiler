@@ -570,6 +570,7 @@ p {
     background-color: rgb(32, 32, 32);
     font-family: monospace;
     font-size: 1rem;
+    height: 100% !important;
 }
 
 .ace_gutter-layer {
@@ -789,7 +790,7 @@ input:checked+.slider .circle {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-weight: 600;
+    font-weight: bolder;
 }
 
 /* Button container styles */
@@ -927,6 +928,7 @@ input:checked+.slider .circle {
 
 /* Language sidebar styling */
 .first {
+    height: 100%;
     width: 80px;
     display: flex;
     flex-direction: column;
@@ -942,7 +944,8 @@ input:checked+.slider .circle {
 
 /* Common icon styles */
 .first i, .first .icon {
-    font-size: 2.5rem;
+    color: white;
+    font-size: 2.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -1028,7 +1031,8 @@ input:checked+.slider .circle {
     left: 120%;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.8);
+    /* background: rgba(0, 0, 0, 0.8); */
+    background: rgb(119 110 110 / 80%);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 6px;
@@ -1049,8 +1053,8 @@ input:checked+.slider .circle {
 
 /* Selection indicator */
 .first i::before, .first .icon::before {
-    content: '';
-    position: absolute;
+    /* content: '';
+    position: absolute; */
     left: -20px;
     top: 50%;
     transform: translateY(-50%);
@@ -1059,6 +1063,8 @@ input:checked+.slider .circle {
     background: linear-gradient(to bottom, #41E6D0, #7F54C9);
     border-radius: 3px;
     transition: height 0.3s ease;
+    padding: 3px;
+    color: white;
 }
 
 .first i:hover::before, .first .icon:hover::before,
@@ -1085,7 +1091,24 @@ input:checked+.slider .circle {
     }
 
     .first i, .first .icon {
+        color: white;
         font-size: 2rem;
         padding: 0.75rem;
     }
 }
+.main-content, .output,.first {
+    transition: height 0.5s ease; /* Smooth transition for height */
+}
+/* ---------------------------Full-Screen--------------------------- */
+@media all and (display-mode: fullscreen) {
+    .main-content {
+        height: 45rem;
+    }
+    .output{
+        height: 41.3rem;
+    }
+    .first{
+        height: 100%;
+    }
+
+  }
