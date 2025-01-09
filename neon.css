@@ -1069,11 +1069,27 @@ input:checked+.slider .circle {
     transition: height 0.3s ease;
     padding: 3px;
     color: white;
+    animation: rotateColors 3s linear infinite;
 }
-
 .first i:hover::before, .first .icon:hover::before,
 .first i.active::before, .first .icon.active::before {
-    height: 24px;
+  height: 24px;
+}
+
+/* Keyframes to rotate colors between green, blue, and pink */
+@keyframes rotateColors {
+  0% {
+    background: linear-gradient(to bottom, #41E6D0, #7F54C9);
+  }
+  33% {
+    background: linear-gradient(to bottom, #7F54C9, #41E6D0);
+  }
+  66% {
+    background: linear-gradient(to bottom, #d62c84, #41E6D0);
+  }
+  100% {
+    background: linear-gradient(to bottom, #41E6D0, #7F54C9);
+  }
 }
 
 /* Hover animation */
