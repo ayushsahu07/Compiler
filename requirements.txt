@@ -1,0 +1,6 @@
+Flask
+requests
+subprocess32  # If you're using subprocess in Python 2.x; in Python 3.x subprocess is built-in.
+traceback2   # If you need traceback in Python 2.x; it's not needed in Python 3.x.
+pathlib     # For Python 2.x; pathlib is part of the standard library in Python 3.4+.
+tempfile      # If you're using tempfile in Python 2.x; it's part of Python's standard library in Python 3.

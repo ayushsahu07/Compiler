@@ -32,7 +32,6 @@ body {
 }
 
 .top-btn {
-    /* width: 30rem; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -210,7 +209,6 @@ p {
 .main {
     position: fixed;
     top: 30px;
-    /* background-color: black; */
     width: 95vw;
     height: auto;
 }
@@ -230,7 +228,6 @@ p {
     border: 1px solid rgb(100 90 90 / 83%);
 }
 
-/* From Uiverse.io */
 .button {
     position: relative;
     text-decoration: none;
@@ -274,92 +271,6 @@ p {
 .button:hover:after {
     opacity: 1;
 }
-
-/* ------------------Switch------------------------ */
-/* switch settings 👇 */
-/* 
-.ui-switch {
-
-    --switch-bg: rgb(135, 150, 165);
-    --switch-width: 48px;
-    --switch-height: 20px;
-    
-    --circle-diameter: 32px;
-    --circle-bg: rgb(0, 0, 0);
-    --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
-}
-
-.ui-switch input {
-    display: none;
-} */
-
-/* .slider {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: var(--switch-width);
-    height: var(--switch-height);
-    background: var(--switch-bg);
-    border-radius: 999px;
-    position: relative;
-    cursor: pointer;
-} */
-
-/* .slider .circle {
-    top: calc(var(--circle-inset) * -1);
-    left: 0;
-    width: var(--circle-diameter);
-    height: var(--circle-diameter);
-    position: absolute;
-    background: var(--circle-bg);
-    border-radius: inherit;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTkuMzA1IDEuNjY3VjMuNzVoMS4zODlWMS42NjdoLTEuMzl6bS00LjcwNyAxLjk1bC0uOTgyLjk4Mkw1LjA5IDYuMDcybC45ODItLjk4Mi0xLjQ3My0xLjQ3M3ptMTAuODAyIDBMMTMuOTI3IDUuMDlsLjk4Mi45ODIgMS40NzMtMS40NzMtLjk4Mi0uOTgyek0xMCA1LjEzOWE0Ljg3MiA0Ljg3MiAwIDAwLTQuODYyIDQuODZBNC44NzIgNC44NzIgMCAwMDEwIDE0Ljg2MiA0Ljg3MiA0Ljg3MiAwIDAwMTQuODYgMTAgNC44NzIgNC44NzIgMCAwMDEwIDUuMTM5em0wIDEuMzg5QTMuNDYyIDMuNDYyIDAgMDExMy40NzEgMTBhMy40NjIgMy40NjIgMCAwMS0zLjQ3MyAzLjQ3MkEzLjQ2MiAzLjQ2MiAwIDAxNi41MjcgMTAgMy40NjIgMy40NjIgMCAwMTEwIDYuNTI4ek0xLjY2NSA5LjMwNXYxLjM5aDIuMDgzdi0xLjM5SDEuNjY2em0xNC41ODMgMHYxLjM5aDIuMDg0di0xLjM5aC0yLjA4NHpNNS4wOSAxMy45MjhMMy42MTYgMTUuNGwuOTgyLjk4MiAxLjQ3My0xLjQ3My0uOTgyLS45ODJ6bTkuODIgMGwtLjk4Mi45ODIgMS40NzMgMS40NzMuOTgyLS45ODItMS40NzMtMS40NzN6TTkuMzA1IDE2LjI1djIuMDgzaDEuMzg5VjE2LjI1aC0xLjM5eiIgLz4KPC9zdmc+");
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -o-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    ;
-} */
-
-/* .slider .circle::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: inherit;
-    -webkit-transition: all 500ms;
-    -o-transition: all 500ms;
-    transition: all 500ms;
-    opacity: 0;
-} */
-
-/* actions */
-
-/* .ui-switch input:checked+.slider .circle {
-    left: calc(100% - var(--circle-diameter));
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
-} */
-
-/* .ui-switch input:active+.slider .circle::before {
-    -webkit-transition: 0s;
-    -o-transition: 0s;
-    transition: 0s;
-    opacity: 1;
-    width: 0;
-    height: 0;
-} */
 
 /* -----------------------------Delete---------------------------- */
 .bin-button {
@@ -443,21 +354,16 @@ p {
     height: 35rem;
     padding: 0.4rem;
     font-size: 2.8rem;
-    /* background: rgba(255, 255, 255, 0.19); */
     background-color: #1e1e1e;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(180, 180, 180, 0.1);
     backdrop-filter: blur(5.2px);
     -webkit-backdrop-filter: blur(5.2px);
-    /* border-left: 1px solid rgba(255, 255, 255, 0.83); */
-    /* color: white; */
     background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
     -webkit-background-clip: text;
     background-clip: text;
     color: whitesmoke;
 }
-
-
 
 .scnd {
     margin-right: 0.7rem;
@@ -476,7 +382,6 @@ p {
     -webkit-backdrop-filter: blur(5.2px);
     border: 1px solid rgb(100 90 90 / 83%);
     animation: rotateBackground 2s linear infinite;
-    /* Add animation */
 }
 
 /* Keyframes for rotating the gradient */
@@ -501,9 +406,6 @@ p {
         background: linear-gradient(360deg, #41E6D0, #7F54C9, #F34BA3);
     }
 }
-
-
-
 .input {
     height: 100%;
     width: auto;
@@ -518,16 +420,10 @@ p {
     padding: 7px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    /* border-bottom-left-radius: 16px; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.2px);
     -webkit-backdrop-filter: blur(5.2px);
     border: 1px solid rgba(43, 43, 43, 0.83);
-    /* color: white; */
-    /* background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
-   -webkit-background-clip: text;
-   background-clip: text;
-   color: transparent; */
     background-color: rgb(32, 32, 32);
 }
 
@@ -549,7 +445,6 @@ p {
     -webkit-backdrop-filter: blur(5.2px);
     border: 1px solid rgb(100 90 90 / 83%);
     animation: rotateBackground 2s linear infinite;
-    /* Add animation */
 }
 
 /* Keyframes for rotating the gradient */
@@ -575,7 +470,6 @@ p {
     }
 }
 
-
 .cpy {
     color: #c0bcbc;
     font-size: 1.4rem;
@@ -590,16 +484,13 @@ p {
     color: #c0bcbc;
     font-size: 1.4rem;
 }
-
 /* ---------------------Card------------------------- */
 .card {
     border-top: 1px solid grey;
     padding-top: 7px;
     background-color: #1e1e1e;
-    /* border-radius: 8px; */
     width: 100%;
     height: 100%;
-    /* padding: 20px; */
     font-family: monospace;
     color: #d4d4d4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -612,7 +503,6 @@ p {
 #editor {
     height: 100%;
     width: 100%;
-    /* border-radius: 8px; */
     word-wrap: break-word;
     white-space: pre-wrap;
     overflow-wrap: break-word;
@@ -633,9 +523,7 @@ p {
 .ace_gutter-layer {
     background-color: rgb(32, 32, 32);
 }
-
 /* -----------------------TEMP-------------------- */
-
 /* Gradient border effect */
 .main-top-axis::before {
     content: '';
@@ -664,9 +552,6 @@ p {
     z-index: -1;
     border-radius: 16px;
 }
-
-
-/* ------------ */
 /* Switch styling */
 .ui-switch {
     position: relative;
@@ -687,7 +572,6 @@ p {
     height: 25px;
     transition: 0.4s;
 }
-
 .slider::before {
     content: '';
     position: absolute;
@@ -737,7 +621,6 @@ input:checked+.slider .circle {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     color: white;
-    /* Set text color to white */
     padding: 0.8rem;
 }
 
@@ -748,18 +631,11 @@ input:checked+.slider .circle {
     padding: 7px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    /* border-bottom-left-radius: 16px; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.2px);
     -webkit-backdrop-filter: blur(5.2px);
     border: 1px solid rgba(43, 43, 43, 0.83);
-    /* color: white; */
-    /* background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
-   -webkit-background-clip: text;
-   background-clip: text;
-   color: transparent; */
     background-color: rgb(32, 32, 32);
-    /* padding-bottom: 1.45rem; */
 }
 
 .output-head h3 {
@@ -777,9 +653,6 @@ input:checked+.slider .circle {
     color: transparent;
     margin-right: 10rem;
 }
-
-
-/* ---------------------------------------------------------------- */
 /* Target Ace Editor's scrollbar */
 .ace_scrollbar.ace_scrollbar-v {
     width: 8px !important;
@@ -993,7 +866,6 @@ input:checked+.slider .circle {
 .success {
     animation: success-pulse 0.3s ease-in-out;
 }
-
 /* Main content container */
 .main-content {
     display: flex;
@@ -1001,10 +873,6 @@ input:checked+.slider .circle {
     width: 100%;
     gap: 1rem;
 }
-
-/* Language sidebar styling */
-
-
 /* Main content container */
 .main-content {
     display: flex;
@@ -1012,7 +880,6 @@ input:checked+.slider .circle {
     width: 100%;
     gap: 1rem;
 }
-
 /* Language sidebar styling */
 .first {
     height: 100%;
@@ -1028,7 +895,6 @@ input:checked+.slider .circle {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
-
 /* Common icon styles */
 .first i,
 .first .icon {
@@ -1042,23 +908,19 @@ input:checked+.slider .circle {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0);
 }
-
 /* Individual icon colors and hover effects */
-/* Python */
 .fa-python {
     background: linear-gradient(135deg, #4B8BBE, #FFE873);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
-
 .fa-python:hover {
     text-shadow: 0 0 20px rgba(75, 139, 190, 0.6);
     transform: translateY(-3px);
     background: rgba(75, 139, 190, 0.1);
     border-color: rgba(75, 139, 190, 0.3);
 }
-
 /* Java */
 .fa-java {
     background: linear-gradient(135deg, #f89820, #5382a1);
@@ -1066,14 +928,12 @@ input:checked+.slider .circle {
     background-clip: text;
     color: transparent;
 }
-
 .fa-java:hover {
     text-shadow: 0 0 20px rgba(248, 152, 32, 0.6);
     transform: translateY(-3px);
     background: rgba(248, 152, 32, 0.1);
     border-color: rgba(248, 152, 32, 0.3);
 }
-
 /* C++ */
 .icon.cpp {
     background: linear-gradient(135deg, #00599C, #004482);
@@ -1088,7 +948,6 @@ input:checked+.slider .circle {
     background: rgba(0, 89, 156, 0.1);
     border-color: rgba(0, 89, 156, 0.3);
 }
-
 /* C */
 .fa-c {
     background: linear-gradient(135deg, #5C6BC0, #3949AB);
@@ -1096,14 +955,12 @@ input:checked+.slider .circle {
     background-clip: text;
     color: transparent;
 }
-
 .fa-c:hover {
     text-shadow: 0 0 20px rgba(92, 107, 192, 0.6);
     transform: translateY(-3px);
     background: rgba(92, 107, 192, 0.1);
     border-color: rgba(92, 107, 192, 0.3);
 }
-
 /* Active state for icons */
 .first i.active,
 .first .icon.active {
@@ -1112,7 +969,6 @@ input:checked+.slider .circle {
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
 /* Tooltip styles */
 .first i::after,
 .first .icon::after {
@@ -1121,7 +977,6 @@ input:checked+.slider .circle {
     left: 120%;
     top: 50%;
     transform: translateY(-50%);
-    /* background: rgba(0, 0, 0, 0.8); */
     background: rgb(119 110 110 / 80%);
     color: white;
     padding: 0.5rem 1rem;
@@ -1229,15 +1084,15 @@ input:checked+.slider .circle {
 @media all and (display-mode: fullscreen) {
     .main-content {
         height: 45rem;
-        animation: fadeIn 2s ease-in-out;
+        animation: fadeIn 0.8s ease-in-out;
     }
     .card{
-        animation: fadeIn 2s ease-in-out;
+        animation: fadeIn 0.8s ease-in-out;
     }
 
     .output {
         height: 41.3rem;
-        animation: fadeIn 2s ease-in-out;
+        animation: fadeIn 0.8s ease-in-out;
     }
 
     .first {
@@ -1253,8 +1108,6 @@ input:checked+.slider .circle {
         }
     }
 }
-
-
 /* Style for fade-out animation */
 .output {
     transition: opacity 0.5s ease-out;
@@ -1264,7 +1117,6 @@ input:checked+.slider .circle {
     opacity: 0;
     pointer-events: none;
 }
-
 /* Hover text */
 .hover-text {
     position: absolute;
@@ -1289,7 +1141,6 @@ input:checked+.slider .circle {
 .save {
     position: relative;
 }
-
 .save .hover-text {
     display: none;  /* Hide by default */
     position: absolute;
