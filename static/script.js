@@ -57,3 +57,22 @@ function runCode() {
         console.error('Error:', error);
     });
 }
+// ---------------------
+function clearOutput() {
+    const output = document.querySelector('.output');
+    output.classList.add('hidden'); // Add fade-out effect
+
+    // Wait for the animation to complete, then clear the content
+    setTimeout(() => {
+        output.innerHTML = ''; // Clear the content
+        output.classList.remove('hidden'); // Reset the opacity for future use
+    }, 500);
+}
+
+function showClearText() {
+    document.getElementById('hoverText').style.visibility = 'visible';
+}
+
+function hideClearText() {
+    document.getElementById('hoverText').style.visibility = 'hidden';
+}

@@ -466,13 +466,15 @@ p {
     border: 1px solid white;
     padding: 0.2rem;
     background: linear-gradient(90deg, #41E6D0, #7F54C9, #F34BA3);
-    background-size: 200% 200%; /* Larger size to create smooth rotation */
+    background-size: 200% 200%;
+    /* Larger size to create smooth rotation */
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.2px);
     -webkit-backdrop-filter: blur(5.2px);
     border: 1px solid rgb(100 90 90 / 83%);
-    animation: rotateBackground 2s linear infinite; /* Add animation */
+    animation: rotateBackground 2s linear infinite;
+    /* Add animation */
 }
 
 /* Keyframes for rotating the gradient */
@@ -480,15 +482,19 @@ p {
     0% {
         background: linear-gradient(0deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     25% {
         background: linear-gradient(90deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     50% {
         background: linear-gradient(180deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     75% {
         background: linear-gradient(270deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     100% {
         background: linear-gradient(360deg, #41E6D0, #7F54C9, #F34BA3);
     }
@@ -526,19 +532,22 @@ p {
 .thrd {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    background-color: rgb(32 30 30); /* Fallback color */
+    background-color: rgb(32 30 30);
+    /* Fallback color */
     width: 50%;
     height: auto;
     border: 1px solid white;
     padding: 0.2rem;
     background: linear-gradient(90deg, #41E6D0, #7F54C9, #F34BA3);
-    background-size: 200% 200%; /* Larger size to create smooth rotation */
+    background-size: 200% 200%;
+    /* Larger size to create smooth rotation */
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5.2px);
     -webkit-backdrop-filter: blur(5.2px);
     border: 1px solid rgb(100 90 90 / 83%);
-    animation: rotateBackground 2s linear infinite; /* Add animation */
+    animation: rotateBackground 2s linear infinite;
+    /* Add animation */
 }
 
 /* Keyframes for rotating the gradient */
@@ -546,15 +555,19 @@ p {
     0% {
         background: linear-gradient(0deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     25% {
         background: linear-gradient(90deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     50% {
         background: linear-gradient(180deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     75% {
         background: linear-gradient(270deg, #41E6D0, #7F54C9, #F34BA3);
     }
+
     100% {
         background: linear-gradient(360deg, #41E6D0, #7F54C9, #F34BA3);
     }
@@ -721,7 +734,9 @@ input:checked+.slider .circle {
     height: 33.3rem;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
-    color: white; /* Set text color to white */
+    color: white;
+    /* Set text color to white */
+    padding: 0.8rem;
 }
 
 .output-head {
@@ -837,7 +852,9 @@ input:checked+.slider .circle {
 }
 
 /* Button container styles */
-.file, .cpy, .save {
+.file,
+.cpy,
+.save {
     position: relative;
     width: 40px;
     height: 40px;
@@ -853,7 +870,9 @@ input:checked+.slider .circle {
 }
 
 /* Icon styles */
-.file i, .cpy i, .save i {
+.file i,
+.cpy i,
+.save i {
     font-size: 1.2rem;
     color: #c0bcbc;
     transition: all 0.3s ease;
@@ -861,19 +880,25 @@ input:checked+.slider .circle {
 }
 
 /* Hover effects */
-.file:hover, .cpy:hover, .save:hover {
+.file:hover,
+.cpy:hover,
+.save:hover {
     transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.file:hover i, .cpy:hover i, .save:hover i {
+.file:hover i,
+.cpy:hover i,
+.save:hover i {
     color: white;
 }
 
 /* Individual button gradient effects */
-.file::before, .cpy::before, .save::before {
+.file::before,
+.cpy::before,
+.save::before {
     content: '';
     position: absolute;
     top: 0;
@@ -906,17 +931,23 @@ input:checked+.slider .circle {
 }
 
 /* Active state */
-.file:active, .cpy:active, .save:active {
+.file:active,
+.cpy:active,
+.save:active {
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Tooltip styles */
-.file, .cpy, .save {
+.file,
+.cpy,
+.save {
     position: relative;
 }
 
-.file::after, .cpy::after, .save::after {
+.file::after,
+.cpy::after,
+.save::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: -30px;
@@ -933,7 +964,9 @@ input:checked+.slider .circle {
     white-space: nowrap;
 }
 
-.file:hover::after, .cpy:hover::after, .save:hover::after {
+.file:hover::after,
+.cpy:hover::after,
+.save:hover::after {
     opacity: 1;
     visibility: visible;
     bottom: -35px;
@@ -941,9 +974,17 @@ input:checked+.slider .circle {
 
 /* Success animation for copy and save actions */
 @keyframes success-pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .success {
@@ -986,7 +1027,8 @@ input:checked+.slider .circle {
 }
 
 /* Common icon styles */
-.first i, .first .icon {
+.first i,
+.first .icon {
     color: white;
     font-size: 2.2rem;
     cursor: pointer;
@@ -1060,7 +1102,8 @@ input:checked+.slider .circle {
 }
 
 /* Active state for icons */
-.first i.active, .first .icon.active {
+.first i.active,
+.first .icon.active {
     transform: scale(1.1);
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.2);
@@ -1068,7 +1111,8 @@ input:checked+.slider .circle {
 }
 
 /* Tooltip styles */
-.first i::after, .first .icon::after {
+.first i::after,
+.first .icon::after {
     content: attr(data-language);
     position: absolute;
     left: 120%;
@@ -1088,21 +1132,24 @@ input:checked+.slider .circle {
     font-weight: 500;
 }
 
-.first i:hover::after, .first .icon:hover::after {
+.first i:hover::after,
+.first .icon:hover::after {
     opacity: 1;
     visibility: visible;
     left: 130%;
 }
 
 /* Selection indicator */
-.first i::before, .first .icon::before {
+.first i::before,
+.first .icon::before {
     left: -20px;
     top: 50%;
     transform: translateY(-50%);
     width: 3px;
     height: 0;
     background: repeating-radial-gradient(#0ce39a, #69007f, #fc0987);
-    background-size: 100% 300%; /* Adjust to create the moving effect */
+    background-size: 100% 300%;
+    /* Adjust to create the moving effect */
     border-radius: 3px;
     transition: height 0.3s ease;
     padding: 3px;
@@ -1110,8 +1157,10 @@ input:checked+.slider .circle {
     animation: moveColors 3s linear infinite;
 }
 
-.first i:hover::before, .first .icon:hover::before,
-.first i.active::before, .first .icon.active::before {
+.first i:hover::before,
+.first .icon:hover::before,
+.first i.active::before,
+.first .icon.active::before {
     height: 24px;
 }
 
@@ -1120,9 +1169,11 @@ input:checked+.slider .circle {
     0% {
         background-position: 0% 0%;
     }
+
     50% {
         background-position: 0% 100%;
     }
+
     100% {
         background-position: 0% 0%;
     }
@@ -1131,12 +1182,21 @@ input:checked+.slider .circle {
 
 /* Hover animation */
 @keyframes iconFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
-.first i:hover, .first .icon:hover {
+.first i:hover,
+.first .icon:hover {
     animation: iconFloat 1s ease infinite;
 }
 
@@ -1147,25 +1207,66 @@ input:checked+.slider .circle {
         padding: 1rem 0.5rem;
     }
 
-    .first i, .first .icon {
+    .first i,
+    .first .icon {
         color: white;
         font-size: 2rem;
         padding: 0.75rem;
     }
 }
-.main-content, .output,.first {
-    transition: height 0.5s ease; /* Smooth transition for height */
+
+.main-content,
+.output,
+.first {
+    transition: height 0.5s ease;
+    /* Smooth transition for height */
 }
+
 /* ---------------------------Full-Screen--------------------------- */
 @media all and (display-mode: fullscreen) {
     .main-content {
         height: 45rem;
     }
-    .output{
+
+    .output {
         height: 41.3rem;
     }
-    .first{
+
+    .first {
         height: 100%;
     }
 
-  }
+}
+
+
+
+/* Style for fade-out animation */
+.output {
+    transition: opacity 0.5s ease-out;
+}
+
+.output.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hover text */
+.hover-text {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bin-button:hover .hover-text {
+    visibility: visible;
+    opacity: 1;
+}

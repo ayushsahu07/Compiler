@@ -52,3 +52,26 @@ document.querySelectorAll(".language-icon").forEach((icon) => {
         setEditorMode(selectedLang);
     });
 });
+// ------------------CPY-code---------------------------
+
+// Function to copy code from the editor to the clipboard
+function copyToClipboard() {
+    // Get the code from the editor
+    const code = editor.getValue();
+
+    // Use the Clipboard API to copy text
+    navigator.clipboard.writeText(code)
+        .then(() => {
+            console.log("Code copied to clipboard!");
+            // Optionally, you can provide user feedback here (e.g., temporary message)
+        })
+        .catch((err) => {
+            console.error("Failed to copy text: ", err);
+        });
+}
+
+// Add click event listener to the "cpy" button
+document.querySelector(".cpy").addEventListener("click", copyToClipboard);
+
+// -----------save-Btn-------------------------
+
