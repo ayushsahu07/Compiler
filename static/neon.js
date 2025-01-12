@@ -26,6 +26,9 @@ const exampleCode = {
     c: "// Write your C code here\n#include <stdio.h>\nint main() {\n    printf(\"Hello, C!\\n\");\n    return 0;\n}"
 };
 
+// Keep track of the current language
+let currentLanguage = 'python';
+
 // Function to update the editor mode and example code
 function setEditorMode(language) {
     const modeMap = {
@@ -35,7 +38,8 @@ function setEditorMode(language) {
         c: "ace/mode/c_cpp",
     };
 
-    const mode = modeMap[language] || "ace/mode/plain_text"; // Default to plain text if language is unknown
+    currentLanguage = language; // Store the current language
+    const mode = modeMap[language] || "ace/mode/plain_text";
     editor.session.setMode(mode);
     editor.setValue(exampleCode[language] || "// Write your code here", -1);
     editor.clearSelection();
@@ -52,18 +56,13 @@ document.querySelectorAll(".language-icon").forEach((icon) => {
         setEditorMode(selectedLang);
     });
 });
-// ------------------CPY-code---------------------------
 
 // Function to copy code from the editor to the clipboard
 function copyToClipboard() {
-    // Get the code from the editor
     const code = editor.getValue();
-
-    // Use the Clipboard API to copy text
     navigator.clipboard.writeText(code)
         .then(() => {
             console.log("Code copied to clipboard!");
-            // Optionally, you can provide user feedback here (e.g., temporary message)
         })
         .catch((err) => {
             console.error("Failed to copy text: ", err);
@@ -73,22 +72,19 @@ function copyToClipboard() {
 // Add click event listener to the "cpy" button
 document.querySelector(".cpy").addEventListener("click", copyToClipboard);
 
-// -----------save-Btn-------------------------
-
 // Function to save the editor content as a file
 function saveToFile() {
-    // Get the code and current language
     const code = editor.getValue();
-    const language = editor.session.getMode().$id.split("/").pop();
 
-    // Determine the file extension based on the language
+    // Use the currentLanguage variable to determine the correct extension
     const extensionMap = {
         python: ".py",
         java: ".java",
-        c_cpp: ".cpp", // Used for both C++ and C
+        cpp: ".cpp",
+        c: ".c"  // Separate extension for C files
     };
 
-    const fileExtension = extensionMap[language] || ".txt"; // Default to .txt if unknown
+    const fileExtension = extensionMap[currentLanguage] || ".txt";
     const fileName = `code${fileExtension}`;
 
     // Create a Blob with the code content
@@ -104,7 +100,7 @@ function saveToFile() {
     downloadLink.click();
     document.body.removeChild(downloadLink);
 
-    // Provide user feedback (popup or console log)
+    // Provide user feedback
     alert(`Your code has been saved as ${fileName}.`);
 }
 
