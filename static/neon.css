@@ -1229,18 +1229,30 @@ input:checked+.slider .circle {
 @media all and (display-mode: fullscreen) {
     .main-content {
         height: 45rem;
+        animation: fadeIn 2s ease-in-out;
+    }
+    .card{
+        animation: fadeIn 2s ease-in-out;
     }
 
     .output {
         height: 41.3rem;
+        animation: fadeIn 2s ease-in-out;
     }
 
     .first {
         height: 100%;
     }
 
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 }
-
 
 
 /* Style for fade-out animation */
