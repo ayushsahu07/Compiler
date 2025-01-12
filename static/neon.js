@@ -75,3 +75,38 @@ document.querySelector(".cpy").addEventListener("click", copyToClipboard);
 
 // -----------save-Btn-------------------------
 
+// Function to save the editor content as a file
+function saveToFile() {
+    // Get the code and current language
+    const code = editor.getValue();
+    const language = editor.session.getMode().$id.split("/").pop();
+
+    // Determine the file extension based on the language
+    const extensionMap = {
+        python: ".py",
+        java: ".java",
+        c_cpp: ".cpp", // Used for both C++ and C
+    };
+
+    const fileExtension = extensionMap[language] || ".txt"; // Default to .txt if unknown
+    const fileName = `code${fileExtension}`;
+
+    // Create a Blob with the code content
+    const fileBlob = new Blob([code], { type: "text/plain" });
+
+    // Create a temporary download link
+    const downloadLink = document.createElement("a");
+    downloadLink.href = URL.createObjectURL(fileBlob);
+    downloadLink.download = fileName;
+
+    // Append the link to the document, click it, and remove it
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+    // Provide user feedback (popup or console log)
+    alert(`Your code has been saved as ${fileName}.`);
+}
+
+// Add click event listener to the "save" button
+document.querySelector(".save").addEventListener("click", saveToFile);
