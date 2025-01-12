@@ -682,7 +682,8 @@ input:checked+.slider .circle {
     z-index: 5;
     height: 33.3rem;
     border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px
+    border-bottom-right-radius: 16px;
+    color: white; /* Set text color to white */
 }
 
 .output-head {
