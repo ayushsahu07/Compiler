@@ -106,3 +106,34 @@ function saveToFile() {
 
 // Add click event listener to the "save" button
 document.querySelector(".save").addEventListener("click", saveToFile);
+
+// ---------------------import-file--------------------
+// Function to handle file import
+document.querySelector(".file").addEventListener("click", () => {
+    document.getElementById("file-input").click();
+});
+
+// Handle file selection
+document.getElementById("file-input").addEventListener("change", (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const fileContent = e.target.result;
+            editor.setValue(fileContent, -1); // Set the editor content to the file content
+        };
+
+        reader.readAsText(file); // Read the file as text
+    }
+});
+
+// Show the hover text "import" when hovering over the file icon
+document.querySelector(".file").addEventListener("mouseover", () => {
+    document.querySelector(".file i").setAttribute("title", "Import");
+});
+
+document.querySelector(".file").addEventListener("mouseout", () => {
+    document.querySelector(".file i").removeAttribute("title");
+});

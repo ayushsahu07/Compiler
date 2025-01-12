@@ -57,13 +57,16 @@
                 <div class="input-head">
                     <h3>Input</h3>
                     <div class="file">
+                        <input type="file" id="file-input" style="display: none;" />
                         <i class="fa-solid fa-file-import"></i>
                     </div>
+                    
                     <div class="cpy" title="Copy">
                         <i class="fa-solid fa-copy"></i>
                     </div>
-                    <div class="save">
+                    <div class="save" title="Save">
                         <i class="fa-solid fa-floppy-disk"></i>
+                        <span class="hover-text" id="saveText">Save</span>
                     </div>
                     <div class="run-btn">
                         <button class="button" onclick="runCode()">

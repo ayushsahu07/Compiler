@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="codemirror.css">
+  <link rel="stylesheet" href="codemirror.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/ayu-mirage.min.css">
-  
+
   <style>
     * {
       margin: 0;
@@ -59,7 +60,7 @@
       right: 0;
       bottom: 0;
       background-color: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         inset 5px 5px 10px var(--shadow-dark),
         inset -5px -5px 10px var(--shadow-light);
       transition: 0.4s;
@@ -81,7 +82,7 @@
       border-radius: 50%;
     }
 
-    input:checked + .slider:before {
+    input:checked+.slider:before {
       transform: translateX(30px);
       content: "🌙";
     }
@@ -99,7 +100,7 @@
       margin-bottom: 30px;
       border-radius: 15px;
       background: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         8px 8px 15px var(--shadow-dark),
         -8px -8px 15px var(--shadow-light);
     }
@@ -120,7 +121,7 @@
     .panel {
       border-radius: 15px;
       background: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         8px 8px 15px var(--shadow-dark),
         -8px -8px 15px var(--shadow-light);
       overflow: hidden;
@@ -151,7 +152,7 @@
       border: none;
       border-radius: 10px;
       background: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         5px 5px 10px var(--shadow-dark),
         -5px -5px 10px var(--shadow-light);
       color: var(--text-color);
@@ -161,9 +162,9 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .action-button:active {
-      box-shadow: 
+      box-shadow:
         inset 5px 5px 10px var(--shadow-dark),
         inset -5px -5px 10px var(--shadow-light);
     }
@@ -173,7 +174,7 @@
       border: none;
       border-radius: 10px;
       background: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         5px 5px 10px var(--shadow-dark),
         -5px -5px 10px var(--shadow-light);
       color: var(--primary-color);
@@ -181,9 +182,9 @@
       cursor: pointer;
       transition: all 0.3s;
     }
-    
+
     .run-button:active {
-      box-shadow: 
+      box-shadow:
         inset 5px 5px 10px var(--shadow-dark),
         inset -5px -5px 10px var(--shadow-light);
     }
@@ -193,7 +194,7 @@
       padding: 20px;
       position: relative;
       background: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         inset 5px 5px 10px var(--shadow-dark),
         inset -5px -5px 10px var(--shadow-light);
       border-radius: 15px;
@@ -213,7 +214,7 @@
     .CodeMirror-gutters {
       background: transparent !important;
       border-right: none !important;
-      box-shadow: 
+      box-shadow:
         5px 0px 10px -5px var(--shadow-dark),
         -5px 0px 10px -5px var(--shadow-light);
     }
@@ -228,7 +229,7 @@
       padding: 20px;
       border-radius: 15px;
       background: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         inset 5px 5px 10px var(--shadow-dark),
         inset -5px -5px 10px var(--shadow-light);
       font-family: 'Courier New', monospace;
@@ -250,7 +251,7 @@
       height: 50px;
       border-radius: 12px;
       background: var(--bg-color);
-      box-shadow: 
+      box-shadow:
         5px 5px 10px var(--shadow-dark),
         -5px -5px 10px var(--shadow-light);
       display: flex;
@@ -261,14 +262,15 @@
       cursor: pointer;
       transition: all 0.3s;
     }
-    
+
     .language-icon:active {
-      box-shadow: 
+      box-shadow:
         inset 5px 5px 10px var(--shadow-dark),
         inset -5px -5px 10px var(--shadow-light);
     }
   </style>
 </head>
+
 <body>
   <div class="compiler-container">
     <div class="header">
@@ -278,7 +280,7 @@
         <span class="slider"></span>
       </label>
     </div>
-    
+
     <div class="main-content">
       <div class="panel">
         <div class="panel-header">
@@ -292,7 +294,7 @@
         </div>
         <div class="editor" id="codeEditor"></div>
       </div>
-      
+
       <div class="panel">
         <div class="panel-header">
           <span class="panel-title">Output</span>
@@ -353,6 +355,7 @@
     }, 100);
   </script>
 
-  
+
 </body>
+
 </html>
