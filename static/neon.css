@@ -757,6 +757,7 @@ input:checked+.slider .circle {
    background-clip: text;
    color: transparent; */
     background-color: rgb(32, 32, 32);
+    /* padding-bottom: 1.45rem; */
 }
 
 .output-head h3 {
