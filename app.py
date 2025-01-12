@@ -36,44 +36,60 @@ def compile_and_execute(code, input_data):
         compile(code, '<string>', 'exec')
     except SyntaxError as e:
         raise Exception(f"Compilation Error: {str(e)}")
-    
-    temp_file_path = '/tmp/temp_code.py'
-    
+
+    # Use tempfile module to handle temporary files cross-platform
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as temp_file:
+        temp_file_path = temp_file.name
+        temp_file.write(code)
+
     try:
-        # Write code to temporary file
-        with open(temp_file_path, 'w') as temp_file:
-            temp_file.write(code)
+        # Determine python executable name based on platform
+        python_exe = 'python' if os.name == 'nt' else 'python3'
         
-        # Prepare command with input if provided
         if input_data:
-            input_file_path = '/tmp/input_data.txt'
-            with open(input_file_path, 'w') as input_file:
+            # Create temporary input file
+            with tempfile.NamedTemporaryFile(mode='w', delete=False) as input_file:
+                input_file_path = input_file.name
                 input_file.write(input_data)
-            command = f'python3 {temp_file_path} < {input_file_path}'
+
+            # Use a unified approach for both Windows and Linux
+            with open(input_file_path, 'r') as input_file:
+                process = subprocess.Popen(
+                    [python_exe, temp_file_path],
+                    stdin=input_file,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True
+                )
         else:
-            command = f'python3 {temp_file_path}'
-        
-        # Execute the code
-        process = subprocess.Popen(
-            command,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            shell=True,
-            text=True  # This ensures text output instead of bytes
-        )
-        
+            # No input data case
+            process = subprocess.Popen(
+                [python_exe, temp_file_path],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
+
         # Get output and error streams
         output, error = process.communicate()
-        
+
+        # Cleanup temporary files
+        os.unlink(temp_file_path)
+        if input_data:
+            os.unlink(input_file_path)
+
         # Check for execution errors
         if error:
             return f"\n{output}\n\nError Output:\n{error}"
-        
         return output
-        
-    except Exception as e:
-        raise Exception(f"Execution Error: {str(e)}")
 
+    except Exception as e:
+        # Ensure cleanup even if an error occurs
+        if os.path.exists(temp_file_path):
+            os.unlink(temp_file_path)
+        if input_data and 'input_file_path' in locals() and os.path.exists(input_file_path):
+            os.unlink(input_file_path)
+        raise Exception(f"Execution Error: {str(e)}")
 
 
 @app.route('/java')
