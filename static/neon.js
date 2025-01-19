@@ -21,7 +21,7 @@ editor.setOptions({
 // Example code for different languages
 const exampleCode = {
     python: "# Write your Python code here\nprint('Hello, Python!')",
-    java: "// Write your Java code here\nclass Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Java!\");\n    }\n}",
+    java: "// Write your Java code here\nclass Hello {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Java!\");\n    }\n}",
     cpp: "// Write your C++ code here\n#include <iostream>\nusing namespace std;\nint main() {\n    cout << \"Hello, C++!\" << endl;\n    return 0;\n}",
     c: "// Write your C code here\n#include <stdio.h>\nint main() {\n    printf(\"Hello, C!\\n\");\n    return 0;\n}"
 };
@@ -137,3 +137,23 @@ document.querySelector(".file").addEventListener("mouseover", () => {
 document.querySelector(".file").addEventListener("mouseout", () => {
     document.querySelector(".file i").removeAttribute("title");
 });
+
+// ---------------------
+function clearOutput() {
+    const output = document.querySelector('.output');
+    output.classList.add('hidden'); // Add fade-out effect
+
+    // Wait for the animation to complete, then clear the content
+    setTimeout(() => {
+        output.innerHTML = ''; // Clear the content
+        output.classList.remove('hidden'); // Reset the opacity for future use
+    }, 500);
+}
+
+function showClearText() {
+    document.getElementById('hoverText').style.visibility = 'visible';
+}
+
+function hideClearText() {
+    document.getElementById('hoverText').style.visibility = 'hidden';
+}
